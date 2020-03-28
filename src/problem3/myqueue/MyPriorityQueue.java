@@ -6,8 +6,10 @@
  */
 package problem3.myqueue;
 
+import problem3.node.Node;
+
 public class MyPriorityQueue {
-       Node head;
+    Node head;
     public MyPriorityQueue(){
         head = null;
     }
@@ -35,5 +37,11 @@ public class MyPriorityQueue {
         }
     }
 
- 
-
+    public void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.println(temp.getName()+"\t"+temp.getRoll());
+            temp = temp.getNext();
+        }
+    }
+}
