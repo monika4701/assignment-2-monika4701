@@ -5,16 +5,20 @@
  *  Time: 7:17 PM
  */
 package problem1.mybst;
-// to implement BinarySearchTree
+
 import problem1.node.TreeNode;
-public class MyBinarySearchTree { 
-     TreeNode root;
-      int count;
-public MyBinarySearchTree(){
-       root=null;
-       count=0;
-}
-public void insert(int data){
+
+// to implement BinarySearchTree
+public class MyBinarySearchTree {
+    TreeNode root;
+    int count;
+
+    public MyBinarySearchTree(){
+        root = null;
+        count = 0;
+    }
+
+    public void insert(int data){
         TreeNode ns = new TreeNode();
         ns.setdata(data);
         if(root == null){
@@ -44,19 +48,17 @@ public void insert(int data){
             }
         }
     }
-    
-     private void LeftNode(TreeNode root){
+    private void LeftNode(TreeNode root){
         if(root == null)    return;
         else{
-            if(root.getLeft()!=null) 
-               System.out.println(root.getLeft().getdata());
+            if(root.getLeft()!=null) System.out.println(root.getLeft().getdata());
             else    count++;
             LeftNode(root.getLeft());
             LeftNode(root.getRight());
         }
     }
-    
-public void printLeftNode(){
+
+    public void printLeftNode(){
         LeftNode(root);
     }
 
@@ -83,6 +85,13 @@ public void printLeftNode(){
         }
     }
 
-   
-}
+    public void preVSpost(){
+        postorder(root);
+        System.out.println();
+        preorder(root);
+    }
 
+    public TreeNode getroot(){
+        return root;
+    }
+}
