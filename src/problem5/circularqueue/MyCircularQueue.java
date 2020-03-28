@@ -1,3 +1,4 @@
+
 /*
  *  Created by IntelliJ IDEA.
  *  User: Vaibhav
@@ -38,7 +39,29 @@ public class MyCircularQueue {
         count++;
     }
 
-    
+    public void removeBackLog(){
+        while(count-->0){
+            Student ss = front.getStudent();
+            if((ss.getBacklog()-ss.getA_count())>0){
+                front = front.getNext();
+                rear = rear.getNext();
+            }
+            else{
+                rear.setNext(front.getNext());
+                front = front.getNext();
+            }
+        }
+    }
+
+    public void display(){
+        Node temp = front;
+        System.out.println();
+        while(temp.getNext()!=front){
+            System.out.println(temp.getStudent());
+            temp = temp.getNext();
+        }
+        System.out.println(temp.getStudent());
+    }
 
 
 }
